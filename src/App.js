@@ -1,14 +1,12 @@
 import React from 'react';
 import { SignIn } from './features/users/user-signin';
+import { Container } from './styles/backgrounds';
 
 function App() {
   return (
-    <div>
-      <header>
-
-      </header>
-      <SignIn></SignIn>
-    </div>
+      <Container>
+        <SignIn></SignIn>
+      </Container>
   );
 }
 
