@@ -2,16 +2,21 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: block;
-    align-content:center;
+    margins: auto;
+    justify-content:center;
 `;
 
 export const BackgroundImageArea = styled.div`
     position: relative;
+    width:95vw;
+    margin:auto;
+    z-index:-1;
 `;
 
 export const ImageBackground = styled.img`
+    margin: auto;
     width:95vw;
-    margin:  0px 0px 0px -10px ;
+    z-index:-1;
 `;
 
 export const ContentOverImage = styled.div`
@@ -24,4 +29,5 @@ export const ContentOverImage = styled.div`
     justify-content: space-evenly;
     align-content: space-around;
     align-items:baseline;
+
 `;

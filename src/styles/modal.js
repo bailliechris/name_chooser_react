@@ -8,19 +8,19 @@ export const ModalArea = styled.div`
     transform: translate(-50%, -50%);
     width: 500px;
     max-width: 85%;
-    height: 400px;
     max-height: 85%;
     border-radius: 5px;
-    z-index: 10;
+    z-index: 1000;
 `;
 
 export const ModalContent = styled.div`
     background: white;
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1001;
 
     /* spacing as needed */
     padding: 20px;
@@ -38,4 +38,5 @@ export const ModalOverlay = styled.div`
     height: 100vh;
     width:100vw;
     background: rgba(0,0,0,0.5);
+    z-index: 999;
 `;

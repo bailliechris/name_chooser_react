@@ -12,6 +12,7 @@ export const Button = styled.button`
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
+    z-index: inherit;
 
     &:hover {
         background-color: #0a9ee1;

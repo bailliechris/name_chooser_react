@@ -36,6 +36,10 @@ export async function loginGoogle() {
     return res.data;
 }
 
+export async function logoutUser() {
+    axios.get(db_url + '/users/logout');
+}
+
 // A mock function to mimic making an async request for data
 /*export function fetchCount(amount = 1) {
     return new Promise((resolve) =>

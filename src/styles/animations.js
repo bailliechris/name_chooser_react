@@ -8,17 +8,16 @@ const fadeInKeyframes = keyframes`
 export const FadeInText = styled.h1`
     color:#f4511e;
     order: 1;
-    font-size: 20px;
+    font-size: 28px;
     width: 40vw;
     animation: ${fadeInKeyframes} 3s linear infinite;
-    }
-    &one{
     animation-delay: 1s;
-    }
-    &two{
+`;
+
+export const FadeInTextTwo = styled(FadeInText)`
     animation-delay: 2s;
-    }  
-    &three{
+`;
+
+export const FadeInTextThree = styled(FadeInText)`
     animation-delay: 3s;
-    }
 `;

@@ -15,3 +15,15 @@ export const NavTitle = styled.div`
         color: #111111;
     `}
 `;
+
+export const SmallText = styled.h1`
+    font-size:14px;
+    padding: 5px;
+    color:#eeeeee;
+`;
+
+export const BigText = styled.h1`
+    font-size:20px;
+    padding: 5px;
+    color:#eeeeee;
+`;

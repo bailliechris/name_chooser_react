@@ -22,5 +22,6 @@ export const NavBar = styled.div`
     width:98vw;
     padding: 0px 0px 10px 0px;
     flex-direction: row;
+    align-items: baseline;
     justify-content: space-between; 
 `;

@@ -3,10 +3,16 @@ import { useDispatch } from 'react-redux';
 import { signIn } from '../features/users/userSlice';
 import { Button, TextInput } from '../styles/inputs';
 
-export function LoginForm() {
+export function LoginForm({changeShow}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
+
+    const trigger = () => {
+        dispatch(signIn({ email: email, pw: password }));
+        changeShow(false);
+    }
+
     return (
         <div>
             <form>
@@ -23,7 +29,7 @@ export function LoginForm() {
                     onChange={e => setPassword(e.target.value)}
                 ></TextInput>
             </form>
-            <Button onClick={() => dispatch(signIn({email:email, pw:password}))}>Sign In</Button>
+            <Button onClick={trigger}>Sign In</Button>
         </div>
     )
 }
