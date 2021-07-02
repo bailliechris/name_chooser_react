@@ -10,6 +10,7 @@ export const ModalArea = styled.div`
     max-width: 85%;
     height: 400px;
     max-height: 85%;
+    border-radius: 5px;
     z-index: 10;
 `;
 

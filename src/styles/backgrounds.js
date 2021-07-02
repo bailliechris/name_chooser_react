@@ -1,23 +1,27 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    font-family: system-ui;
-    background: #cad0db;
-    color: darkgray;
- /*   text-align: center;
-    justify-content: center;
-    align-content: center;
-    height: 100vh;
-    margin: 0px;
-    padding: 0px;
-    cursor: default; */
+    display: block;
+    align-content:center;
+`;
 
-    position: static;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width:100vw;
-    justify-content: center;
-    align-content: center;
-    background: rgba(0,0,0,0.5);
+export const BackgroundImageArea = styled.div`
+    position: relative;
+`;
+
+export const ImageBackground = styled.img`
+    width:95vw;
+    margin:  0px 0px 0px -10px ;
+`;
+
+export const ContentOverImage = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: space-around;
+    align-items:baseline;
 `;
