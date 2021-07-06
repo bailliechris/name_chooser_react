@@ -2,7 +2,6 @@ import React from 'react';
 import { ImageBackground, BackgroundImageArea, ContentOverImage } from '../../styles/backgrounds';
 import { FadeInText, FadeInTextTwo, FadeInTextThree } from '../../styles/animations';
 import { BigText } from '../../styles/text';
-//import { Modal } from '../../components/modal';
 import { useSelector } from 'react-redux';
 
 export function Landing() {
@@ -19,7 +18,7 @@ export function Landing() {
                 <div>
                     {isAuth
                         ? <BigText>Hello {user.user} !</BigText> 
-                        : <BigText>Login Above!</BigText>
+                        : <BigText>Login above!</BigText>
                     }
                 </div>
             </ContentOverImage>

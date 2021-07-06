@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { login, logoutUser } from './dbApi';
+import { login, logoutUser, register } from './dbApi';
 
 const initialState = {
   user: {},
-  classes: [],
+  classes: [{}],
   isAuth: false,
   status: 'Waiting for sign-in'
 };
@@ -16,13 +16,24 @@ const initialState = {
 export const signIn = createAsyncThunk(
   'users/login',
   async (details) => {
-    console.log('Async Thunk');
+    console.log('Thunk Signin');
     const res = await login(details);
     // The value we return becomes the `fulfilled` action payload
     return res;
   }
 );
 
+export const registerUser = createAsyncThunk(
+  'users/register',
+  async (details) => {
+    console.log('Thunk Register');
+    const res = await register(details);
+
+    return res;
+  }
+)
+
+//Doesn't work! 4/7/21 - need to test now changed the db_api.js
 export const signOut = createAsyncThunk(
   'users/logoutUser',
   async () => {
@@ -57,11 +68,13 @@ export const userSlice = createSlice({
       })
       .addCase(signIn.fulfilled, (state, action) => {
         console.log('Data Assigned');
+        console.log(action.payload);
         state.user.user = action.payload.data.user;
         state.user._id = action.payload.data._id;
         state.status = 'loaded';
         state.isAuth = true;
-        state.classes = action.payload.data.classes;
+        state.classes = [...action.payload.data.classes];
+        console.log(state.classes);
       })
       .addCase(signOut.fulfilled, (state, action) => {
         console.log(action.payload);
@@ -71,6 +84,13 @@ export const userSlice = createSlice({
           state.isAuth = false;
           state.status = 'Waiting for sign-in';
         }
+      })
+      .addCase(registerUser.fulfilled, (state, action) => {
+        state.user = action.payload.data.user;
+        state.user.user = action.payload.data.user;
+        state.user._id = action.payload.data._id;
+        state.status = 'loaded';
+        state.isAuth = true;
       });
   },
 });

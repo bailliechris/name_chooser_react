@@ -30,7 +30,7 @@ export const TextInput = styled.input`
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #0a9ee1;
+    border: 3px solid #0a9ee1;
     border-radius: 5px;
     box-sizing: border-box;
 `;

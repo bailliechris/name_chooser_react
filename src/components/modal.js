@@ -5,6 +5,8 @@ import { NavTitle } from '../styles/navbar';
 import { LoginForm } from './loginform';
 import { useSelector } from 'react-redux';
 import { LogoutButton } from './logoutbutton';
+import { Link } from 'react-router-dom';
+import { SmallText } from '../styles/text';
 
 export function Modal({ button_text}) {
     const { isAuth } = useSelector(state => state.users);
@@ -21,13 +23,27 @@ export function Modal({ button_text}) {
                 <ModalArea>
                     <ModalContent>
                         <NavTitle primary>{isAuth ? "Log out?" : "Sign In"}</NavTitle>
+                        <div>
                         {
                             isAuth
                                 ? <LogoutButton changeShow={changeShow} />
                                 : <LoginForm changeShow={changeShow} />
-                        }
-                            
-                        <Button onClick={() => setShow(false)}>Cancel</Button>
+                            }
+                        </div>
+                        <div>
+                        {
+                            !isAuth
+                                ?   <Link to="/register" onClick={() => setShow(false)} style={{ textDecoration: 'none' }}>
+                                        <SmallText link>
+                                            Register
+                                        </SmallText>
+                                    </Link>
+                                : <SmallText>Hello!</SmallText>
+                            }
+                        </div>
+                        <div>
+                            <Button onClick={() => setShow(false)}>Cancel</Button>
+                        </div>
                     </ModalContent>
                 </ModalArea>
             </ModalOverlay>

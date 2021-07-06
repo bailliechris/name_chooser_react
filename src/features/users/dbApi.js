@@ -3,19 +3,6 @@ import axios from 'axios';
 // URL for easier bulk changes!
 const db_url = 'http://localhost:5000';
 
-/*
-export async function login(user, password) {
-    let data = {
-        email: user,
-        pw: password
-    }
-
-    const res = await axios.post(db_url + '/users/login', data);
-
-    return res.data;
-}
-*/
-
 // Thunk compatible login
 export function login(details) {
 /*    let data = {
@@ -26,7 +13,16 @@ export function login(details) {
     console.log('Invoking login');
 
     return new Promise((resolve) => {
-        resolve(axios.post(db_url+ '/users/login', details))
+        resolve(axios.post(db_url + '/users/login', details))
+    });
+}
+
+// Register a new user
+export function register(details) {
+    console.log('Creating new user');
+
+    return new Promise((resolve) => {
+        resolve(axios.post(db_url + 'users/register', details))
     });
 }
 
@@ -36,8 +32,13 @@ export async function loginGoogle() {
     return res.data;
 }
 
-export async function logoutUser() {
-    axios.get(db_url + '/users/logout');
+// Logout route
+export function logoutUser() {
+
+    console.log('Creating logout promise');
+    return new Promise((resolve) => {
+        resolve(axios.get(db_url + '/users/logout'));
+    });
 }
 
 // A mock function to mimic making an async request for data
